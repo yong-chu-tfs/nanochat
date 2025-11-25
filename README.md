@@ -62,6 +62,32 @@ Total wall clock time: 3h51m
 
 ---
 
+## Docker
+
+Build a CUDA-enabled image with all project dependencies:
+
+```bash
+docker build -t nanochat:latest .
+```
+
+Run it with access to your GPU stack (requires the NVIDIA Container Toolkit):
+
+```bash
+docker run --gpus all -it --rm \
+  -v ~/.cache/nanochat:/workspace/.cache/nanochat \
+  nanochat:latest
+```
+
+The virtual environment is activated inside the container, so you can launch the usual commands (e.g. `bash speedrun.sh`) right away.
+
+To use Docker Compose instead:
+
+```bash
+docker compose run --rm nanochat
+```
+
+This attaches you to an interactive shell in the same CUDA-enabled environment, with the repository and cache directories mounted for persistence.
+
 (Your table might be missing the RL number by default). For a lot more information around the speedrun script and what to look for and expect, please refer to the walkthrough that I posted in Discussions of the repo: ["Introducing nanochat: The best ChatGPT that $100 can buy"](https://github.com/karpathy/nanochat/discussions/1).
 
 ## Bigger models

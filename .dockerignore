@@ -1,0 +1,26 @@
+# Local environments
+.venv
+.env
+.env.*
+
+# Python cache
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+
+# Build artifacts
+*.egg-info
+build/
+dist/
+
+# Rust artifacts
+rustbpe/target
+
+# Logs and reports
+*.log
+report.md
+
+# VCS
+.git
+.gitignore

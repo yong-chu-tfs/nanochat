@@ -1,0 +1,22 @@
+services:
+  nanochat:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: nanochat:latest
+    working_dir: /workspace
+    command: bash
+    tty: true
+    stdin_open: true
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    volumes:
+      - ./:/workspace
+      - ${HOME}/.cache/nanochat:/workspace/.cache/nanochat
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
