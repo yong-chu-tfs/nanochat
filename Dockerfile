@@ -16,6 +16,7 @@ RUN apt-get clean \
         libssl-dev \
         pkg-config \
         python3 \
+        python3-dev \
         python3-pip \
         python3-venv \
         python-is-python3 \
